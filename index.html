@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yas Dwarka — Growth & Experimentation Specialist</title>
+<meta name="description" content="Yas Dwarka, Growth & Experimentation Specialist in London. 112 A/B tests across 4 brands and 11 markets, improving acquisition, activation, engagement and revenue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --ink: #0b1220;
+    --ink-2: #1e293b;
+    --muted: #5a6577;
+    --line: #e3e7ee;
+    --accent: #10b981;
+    --accent-ink: #047857;
+    --accent-soft: #e7f8f1;
+    --blue: #3b82f6;
+    --dark: #0b1220;
+    --dark-2: #111a2c;
+    --dark-line: rgba(255,255,255,.09);
+    --dark-muted: #94a3b8;
+    --radius: 12px;
+    --max: 1160px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--bg); color: var(--ink);
+    line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  h1, h2, h3, h4 { font-family: "Inter Tight", "Inter", sans-serif; font-weight: 700; line-height: 1.12; letter-spacing: -0.025em; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  section { padding: 104px 0; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 16px;
+  }
+  .eyebrow::before { content: ""; width: 18px; height: 2px; background: currentColor; }
+  .section-title { font-size: clamp(30px, 4vw, 44px); margin-bottom: 16px; max-width: 760px; }
+  .lede { color: var(--muted); max-width: 640px; font-size: 17px; }
+  .dark { background: var(--dark); color: #fff; }
+  .dark .eyebrow { color: #34d399; }
+  .dark .lede { color: var(--dark-muted); }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 50; background: rgba(11,18,32,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--dark-line); color: #fff; }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Inter Tight", sans-serif; font-weight: 700; font-size: 18px; letter-spacing: -.02em; }
+  .logo i { width: 30px; height: 30px; border-radius: 8px; background: var(--accent); color: var(--dark); display: grid; place-items: center; font-style: normal; font-size: 13px; font-weight: 700; }
+  .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 14px; color: #cbd5e1; font-weight: 500; }
+  .nav-links a:hover { color: #fff; }
+  .nav-links .nav-cta { background: #fff; color: var(--ink); padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+  .nav-links .nav-cta:hover { color: var(--ink); background: #e2e8f0; }
+  .menu-btn { display: none; background: none; border: 0; font-size: 24px; cursor: pointer; color: #fff; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 20px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; transition: transform .15s, background .15s, box-shadow .15s, border-color .15s; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .btn-accent { background: var(--accent); color: var(--dark); }
+  .btn-accent:hover { background: #34d399; }
+  .btn-line { border: 1px solid rgba(255,255,255,.18); color: #fff; }
+  .btn-line:hover { border-color: rgba(255,255,255,.4); }
+  .btn-ghost { border: 1px solid var(--line); background: var(--surface); }
+  .btn-ghost:hover { border-color: #c5ccd8; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; padding: 96px 0 104px; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(var(--dark-line) 1px, transparent 1px), linear-gradient(90deg, var(--dark-line) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, #000 20%, transparent 75%);
+  }
+  .hero::after { content: ""; position: absolute; width: 620px; height: 620px; right: -160px; top: -200px; background: radial-gradient(circle, rgba(16,185,129,.22), transparent 65%); }
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr 1fr; gap: 64px; align-items: center; }
+  .hero-grid > *, .stage, .bar, .feature-grid > *, .job > *, .contact-box > * { min-width: 0; }
+  .funnel-head { flex-wrap: wrap; gap: 4px 12px; }
+  .status { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--dark-line); background: rgba(255,255,255,.04); padding: 7px 14px; border-radius: 999px; font-size: 13px; color: #cbd5e1; margin-bottom: 28px; }
+  .status b { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(16,185,129,.2); }
+  .hero h1 { font-size: clamp(40px, 5.6vw, 66px); margin-bottom: 24px; }
+  .hero h1 span { background: linear-gradient(90deg, #34d399, #60a5fa); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.intro { font-size: 18px; color: #b6c2d3; max-width: 560px; margin-bottom: 34px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--dark-line); font-size: 14px; color: var(--dark-muted); }
+  .hero-meta b { color: #fff; font-weight: 600; display: block; font-size: 15px; }
+
+  /* Funnel card */
+  .funnel-card { background: var(--dark-2); border: 1px solid var(--dark-line); border-radius: 18px; padding: 28px; box-shadow: 0 40px 80px rgba(0,0,0,.4); }
+  .funnel-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 22px; }
+  .funnel-head h3 { font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
+  .funnel-head span { font-size: 11px; color: var(--dark-muted); }
+  .funnel { display: grid; gap: 10px; }
+  .stage { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; }
+  .bar { position: relative; height: 54px; border-radius: 8px; background: linear-gradient(90deg, rgba(16,185,129,.28), rgba(59,130,246,.18)); border: 1px solid rgba(52,211,153,.25); display: flex; flex-direction: column; justify-content: center; padding: 0 16px; }
+  .bar small { font-family: "JetBrains Mono", monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: #6ee7b7; }
+  .bar strong { font-size: 13px; font-weight: 500; color: #e2e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .stage:nth-child(1) .bar { width: 100%; } .stage:nth-child(2) .bar { width: 90%; } .stage:nth-child(3) .bar { width: 80%; } .stage:nth-child(4) .bar { width: 70%; }
+  .lift { font-family: "JetBrains Mono", monospace; font-size: 15px; font-weight: 500; color: #34d399; min-width: 70px; text-align: right; }
+  .lift.neutral { color: var(--dark-muted); font-size: 12px; }
+  .funnel-foot { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 22px; border-top: 1px solid var(--dark-line); padding-top: 18px; text-align: center; }
+  .funnel-foot div + div { border-left: 1px solid var(--dark-line); }
+  .funnel-foot b { display: block; font-family: "Inter Tight", sans-serif; font-size: 26px; line-height: 1.1; }
+  .funnel-foot span { font-size: 12px; color: var(--dark-muted); }
+
+  /* Logo strip */
+  .strip { background: var(--dark); border-top: 1px solid var(--dark-line); padding: 28px 0; }
+  .strip .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 36px; }
+  .strip small { color: var(--dark-muted); font-family: "JetBrains Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+  .strip ul { display: flex; flex-wrap: wrap; gap: 14px 40px; list-style: none; font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 19px; color: #64748b; letter-spacing: -.01em; }
+
+  /* Case studies */
+  .cases { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 52px; }
+  .case { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; transition: box-shadow .2s, border-color .2s; }
+  .case:hover { border-color: #cdd4df; box-shadow: 0 18px 40px rgba(11,18,32,.06); }
+  .case-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+  .pill { font-family: "JetBrains Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; padding: 5px 10px; border-radius: 6px; background: var(--accent-soft); color: var(--accent-ink); white-space: nowrap; }
+  .pill.blue { background: #eaf2fe; color: #1d4ed8; }
+  .pill.violet { background: #f1ecfe; color: #6d28d9; }
+  .pill.amber { background: #fdf3e3; color: #b45309; }
+  .case-brand { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .case-metric { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+  .case-metric b { font-family: "Inter Tight", sans-serif; font-size: 52px; font-weight: 700; letter-spacing: -.04em; line-height: 1; }
+  .case-metric span { font-size: 15px; color: var(--muted); font-weight: 500; }
+  .case h3 { font-size: 20px; margin: 10px 0 18px; letter-spacing: -.015em; }
+  .case dl { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; font-size: 14.5px; }
+  .case dt { font-family: "JetBrains Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 2px; }
+  .case dd { color: var(--ink-2); }
+
+  /* Approach */
+  .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--dark-line); border: 1px solid var(--dark-line); border-radius: 14px; overflow: hidden; margin-top: 52px; }
+  .step { background: var(--dark); padding: 30px; }
+  .step .num { font-family: "JetBrains Mono", monospace; font-size: 12px; color: #34d399; }
+  .step h4 { font-size: 19px; margin: 12px 0 8px; letter-spacing: -.01em; }
+  .step p { color: var(--dark-muted); font-size: 14.5px; }
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
+  .principle { border: 1px solid var(--dark-line); border-radius: 14px; padding: 24px; background: rgba(255,255,255,.02); }
+  .principle h4 { font-size: 16px; margin-bottom: 6px; }
+  .principle p { font-size: 14px; color: var(--dark-muted); }
+
+  /* Featured website */
+  .feature-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .browser { border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid var(--line); box-shadow: 0 30px 60px rgba(11,18,32,.12); }
+  .browser-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: #f1f3f6; border-bottom: 1px solid var(--line); }
+  .browser-bar i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+  .browser-bar i:nth-child(1) { background: #f87171; } .browser-bar i:nth-child(2) { background: #fbbf24; } .browser-bar i:nth-child(3) { background: #34d399; }
+  .browser-bar span { margin-left: 10px; background: #fff; border: 1px solid var(--line); border-radius: 6px; font-size: 12px; padding: 3px 12px; color: var(--muted); flex: 1; }
+  .mock { padding: 28px; background: linear-gradient(160deg, #f4f7fb, #fff); }
+  .mock-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+  .mock-nav b { font-family: "Inter Tight", sans-serif; font-size: 17px; }
+  .mock-nav div { display: flex; gap: 12px; }
+  .mock-nav div i { display: block; width: 38px; height: 7px; border-radius: 4px; background: #dbe1ea; }
+  .mock h5 { font-family: "Inter Tight", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -.02em; max-width: 300px; line-height: 1.15; margin-bottom: 10px; }
+  .mock p { font-size: 13px; color: var(--muted); max-width: 300px; margin-bottom: 18px; }
+  .mock .mbtn { display: inline-block; background: var(--ink); color: #fff; font-size: 12px; padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+  .mock-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 26px; }
+  .mock-cards i { display: block; height: 64px; border-radius: 8px; background: #e7ebf1; }
+  .mock-cards i:nth-child(2) { background: var(--accent-soft); }
+  .checks { list-style: none; margin: 24px 0 28px; display: grid; gap: 12px; }
+  .checks li { display: flex; gap: 12px; font-size: 15px; color: var(--ink-2); }
+  .checks li svg { flex: none; width: 20px; height: 20px; color: var(--accent); margin-top: 2px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 12.5px; font-weight: 500; padding: 5px 11px; border-radius: 6px; background: #eef1f5; color: var(--ink-2); border: 1px solid var(--line); }
+
+  /* Projects */
+  .projects-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+  .project { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .project:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(11,18,32,.07); border-color: #cdd4df; }
+  .project.lead { grid-column: span 2; background: var(--dark); color: #fff; border-color: var(--dark); }
+  .project.lead p { color: var(--dark-muted); }
+  .project.lead .chip { background: rgba(255,255,255,.06); color: #cbd5e1; border-color: var(--dark-line); }
+  .project.lead .icon { background: rgba(16,185,129,.15); color: #34d399; }
+  .project.lead .label { color: #34d399; }
+  .project-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-ink); display: grid; place-items: center; }
+  .icon svg { width: 20px; height: 20px; }
+  .arrow { color: var(--muted); transition: transform .2s, color .2s; }
+  .arrow svg { width: 20px; height: 20px; display: block; }
+  .project:hover .arrow { transform: translate(3px, -3px); color: var(--accent); }
+  .label { font-family: "JetBrains Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-ink); margin-bottom: 8px; display: block; }
+  .project h3 { font-size: 20px; margin-bottom: 8px; letter-spacing: -.015em; }
+  .project p { color: var(--muted); font-size: 15px; flex: 1; margin-bottom: 18px; }
+
+  /* Experience */
+  .timeline { margin-top: 48px; border-top: 1px solid var(--line); }
+  .job { display: grid; grid-template-columns: 280px 1fr; gap: 40px; padding: 36px 0; border-bottom: 1px solid var(--line); }
+  .job .date { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); }
+  .job h3 { font-size: 24px; margin: 8px 0 4px; }
+  .job .role { font-weight: 600; color: var(--accent-ink); font-size: 15px; }
+  .job-body > p { color: var(--muted); margin-bottom: 16px; }
+  .job-body ul { list-style: none; display: grid; gap: 10px; font-size: 15px; color: var(--ink-2); }
+  .job-body li { position: relative; padding-left: 20px; }
+  .job-body li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 2px; background: var(--accent); }
+  .job-body li b { color: var(--ink); }
+
+  /* Stack */
+  .stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+  .stack { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  .stack h3 { font-size: 16px; margin-bottom: 16px; letter-spacing: -.01em; }
+
+  /* Credentials */
+  .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+  .cred { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+  .cred h4 { font-family: "JetBrains Mono", monospace; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); padding: 18px 26px; border-bottom: 1px solid var(--line); }
+  .cred ul { list-style: none; }
+  .cred li { padding: 18px 26px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; }
+  .cred li:last-child { border-bottom: 0; }
+  .cred b { font-size: 15px; font-weight: 600; }
+  .cred span { font-size: 14px; color: var(--muted); text-align: right; }
+
+  /* Contact */
+  .contact { text-align: left; }
+  .contact-box { border: 1px solid var(--dark-line); border-radius: 20px; padding: 56px; background: radial-gradient(ellipse at 100% 0%, rgba(16,185,129,.18), transparent 55%), var(--dark-2); display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+  .contact h2 { font-size: clamp(30px, 4.4vw, 46px); margin-bottom: 14px; }
+  .contact p { color: var(--dark-muted); font-size: 17px; }
+  .contact-ctas { display: grid; gap: 12px; }
+  .contact-ctas .btn { justify-content: center; }
+  footer { background: var(--dark); color: #64748b; font-size: 14px; border-top: 1px solid var(--dark-line); padding: 26px 0; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { text-decoration: none; color: #94a3b8; margin-left: 20px; }
+  footer a:hover { color: #fff; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .hero-grid, .feature-grid, .contact-box { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: 1fr 1fr; }
+    .project-grid { grid-template-columns: 1fr 1fr; }
+    .job { grid-template-columns: 1fr; gap: 16px; }
+    .approach-grid, .principles { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 720px) {
+    section { padding: 76px 0; }
+    .wrap { padding: 0 16px; }
+    .hero { padding: 64px 0 76px; }
+    .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--dark); flex-direction: column; align-items: stretch; gap: 0; border-bottom: 1px solid var(--dark-line); padding: 8px 0 16px; }
+    .nav-links.open { display: flex; }
+    .nav-links a { display: block; padding: 12px 20px; }
+    .nav-links .nav-cta { margin: 8px 16px 0; text-align: center; }
+    .menu-btn { display: block; }
+    .cases, .project-grid, .stack-grid, .cred-grid, .approach-grid, .principles { grid-template-columns: 1fr; }
+    .project.lead { grid-column: span 1; }
+    .case, .funnel-card { padding: 22px; }
+    .case-metric b { font-size: 44px; }
+    .stage .bar { width: 100% !important; padding: 0 12px; }
+    .lift { min-width: 0; font-size: 14px; }
+    .status { font-size: 12px; }
+    .contact-box { padding: 32px 22px; }
+    .cred li { flex-direction: column; gap: 2px; }
+    .cred span { text-align: left; }
+    footer a { margin: 0 20px 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo"><i>YD</i>Yas Dwarka</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" id="menuBtn">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#results">Case studies</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero dark" id="top">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="status"><b></b>Open to Growth &amp; Experimentation roles · London</div>
+      <h1>Growth driven by <span>evidence, not guesswork.</span></h1>
+      <p class="intro">I'm a Growth &amp; Experimentation Specialist with 5+ years improving acquisition, activation and revenue for fintech and ecommerce brands. I've run 112 A/B tests across 4 brands and 11 markets, and I turn customer insight into measurable commercial results.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-accent" href="#results">View case studies</a>
+        <a class="btn btn-line" href="https://www.linkedin.com/in/yaswini-dwarka/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn btn-line" href="https://github.com/yasdwarka?tab=repositories" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div><b>Paysafe</b>CRO Specialist · 2023–26</div>
+        <div><b>British Heart Foundation</b>Digital Conversion · 2021–23</div>
+        <div><b>Optimizely</b>Certified Practitioner</div>
+      </div>
+    </div>
+
+    <aside class="funnel-card reveal" aria-label="Growth impact across the funnel">
+      <div class="funnel-head"><h3>Impact across the funnel</h3><span class="mono">Selected test results</span></div>
+      <div class="funnel">
+        <div class="stage"><div class="bar"><small>Acquisition</small><strong>Personalised landing pages by market</strong></div><div class="lift neutral">11 markets</div></div>
+        <div class="stage"><div class="bar"><small>Activation</small><strong>Paysafecard signup</strong></div><div class="lift">+5.2%</div></div>
+        <div class="stage"><div class="bar"><small>Engagement</small><strong>Paysafe.com contact CTA</strong></div><div class="lift">+632%</div></div>
+        <div class="stage"><div class="bar"><small>Revenue</small><strong>BHF ecommerce conversions</strong></div><div class="lift">+256%</div></div>
+      </div>
+      <div class="funnel-foot">
+        <div><b>112</b><span>A/B tests</span></div>
+        <div><b>~70%</b><span>Win rate</span></div>
+        <div><b>4</b><span>Brands</span></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <small>Growth work for</small>
+    <ul><li>Paysafe</li><li>Paysafecard</li><li>Skrill</li><li>British Heart Foundation</li></ul>
+  </div>
+</div>
+
+<section id="results">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Case studies</div>
+      <h2 class="section-title">Growth wins, from hypothesis to rollout</h2>
+      <p class="lede">Each test started with evidence from funnel data, behavioural analytics and user research. Each one ended with a clear decision for the business.</p>
+    </div>
+    <div class="cases">
+      <article class="case reveal">
+        <div class="case-top"><span class="pill amber">Revenue</span><span class="case-brand">British Heart Foundation</span></div>
+        <div class="case-metric"><b>+256%</b><span>ecommerce conversions</span></div>
+        <h3>Rebuilding the online shop experience</h3>
+        <dl>
+          <div><dt>Challenge</dt><dd>Friction in the charity's ecommerce journey was holding back online sales.</dd></div>
+          <div><dt>Approach</dt><dd>Combined customer research and analytics to find drop-off points, then ran a roadmap of tests that each built on the last.</dd></div>
+          <div><dt>Outcome</dt><dd>Ecommerce conversions rose 256%, supported by cross-sell and upsell work.</dd></div>
+        </dl>
+      </article>
+      <article class="case reveal">
+        <div class="case-top"><span class="pill blue">Engagement</span><span class="case-brand">Paysafe.com</span></div>
+        <div class="case-metric"><b>+632%</b><span>contact CTA engagement</span></div>
+        <h3>Making the high-intent next step obvious</h3>
+        <dl>
+          <div><dt>Challenge</dt><dd>B2B visitors who were ready to talk to sales weren't finding the contact route.</dd></div>
+          <div><dt>Approach</dt><dd>Analysed behaviour with Hotjar and GA4, then tested where the contact CTA sat, how visible it was and how it was worded.</dd></div>
+          <div><dt>Outcome</dt><dd>Engagement with the contact CTA rose 632%, creating a stronger lead-generation path.</dd></div>
+        </dl>
+      </article>
+      <article class="case reveal">
+        <div class="case-top"><span class="pill violet">Engagement</span><span class="case-brand">Skrill</span></div>
+        <div class="case-metric"><b>+42.8%</b><span>mobile navigation CTR</span></div>
+        <h3>Simplifying navigation for mobile users</h3>
+        <dl>
+          <div><dt>Challenge</dt><dd>The mobile navigation was hard to scan, so fewer users reached key product pages.</dd></div>
+          <div><dt>Approach</dt><dd>Redesigned the structure of the mobile menu, built it in Optimizely and QA'd it across devices with BrowserStack.</dd></div>
+          <div><dt>Outcome</dt><dd>Mobile navigation click-through rose 42.82%.</dd></div>
+        </dl>
+      </article>
+      <article class="case reveal">
+        <div class="case-top"><span class="pill">Activation</span><span class="case-brand">Paysafecard</span></div>
+        <div class="case-metric"><b>+5.2%</b><span>signup conversion</span></div>
+        <h3>Using trust signals to lift registrations</h3>
+        <dl>
+          <div><dt>Challenge</dt><dd>Prospective users hesitated at signup, a common problem in payments.</dd></div>
+          <div><dt>Approach</dt><dd>Made partner logos and trust signals more visible, and tested the change across markets.</dd></div>
+          <div><dt>Outcome</dt><dd>Signup conversion rose 5.2%. Results varied by market, which shaped the next tests.</dd></div>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="approach">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Approach</div>
+      <h2 class="section-title">A repeatable growth engine</h2>
+      <p class="lede">I run experimentation as an always-on programme rather than one-off tests, with prioritisation, documentation and stakeholder read-outs built in.</p>
+    </div>
+    <div class="approach-grid reveal">
+      <div class="step"><span class="num">01 / Discover</span><h4>Find the friction</h4><p>Analyse funnels in GA4, Adobe Analytics, Looker Studio and SQL, and review session recordings and user research.</p></div>
+      <div class="step"><span class="num">02 / Hypothesise</span><h4>Build the case</h4><p>Write hypotheses grounded in evidence and tied to a metric that matters to the business.</p></div>
+      <div class="step"><span class="num">03 / Prioritise</span><h4>Focus on impact</h4><p>Score ideas with ICE and PIE to balance impact, confidence, effort and dependencies.</p></div>
+      <div class="step"><span class="num">04 / Build &amp; QA</span><h4>Ship it properly</h4><p>Build variations in Optimizely with HTML, CSS and JS, and QA them across browsers, devices and regions.</p></div>
+      <div class="step"><span class="num">05 / Analyse</span><h4>Read it rigorously</h4><p>Analyse results statistically and segment them by market, since the same change can win in one country and lose in another.</p></div>
+      <div class="step"><span class="num">06 / Scale</span><h4>Roll out &amp; iterate</h4><p>Turn results into commercial recommendations, roll out the winners, and feed what we learned into the next round of tests.</p></div>
+    </div>
+    <div class="principles">
+      <div class="principle reveal"><h4>Learning velocity</h4><p>A steady pipeline of discovery, builds and read-outs across 4 brands at once.</p></div>
+      <div class="principle reveal"><h4>Losses are data too</h4><p>Negative and inconclusive results still lead to clear next actions.</p></div>
+      <div class="principle reveal"><h4>AI-assisted, human-led</h4><p>I use Optimizely Opal AI agents and generative AI to speed up research and briefs. Customer evidence and judgement still make the call.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="feature-grid">
+      <div class="browser reveal" aria-hidden="true">
+        <div class="browser-bar"><i></i><i></i><i></i><span>Chalets &amp; Caviar · WordPress build</span></div>
+        <div class="mock">
+          <div class="mock-nav"><b>Chalets &amp; Caviar</b><div><i></i><i></i><i></i></div></div>
+          <h5>Luxury chalets in Aspen, to buy or rent.</h5>
+          <p>A clear, uncluttered WordPress site for a luxury real-estate agency.</p>
+          <span class="mbtn">View chalets</span>
+          <div class="mock-cards"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">Featured website</div>
+        <h2 class="section-title">Chalets &amp; Caviar</h2>
+        <p class="lede">A website for a luxury real-estate agency in Aspen, Colorado. The brief asked for a clear, uncluttered design that felt luxurious, so I chose and customised a WordPress theme that represented the brand well.</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Chose, installed and configured a WordPress theme, and explained the choice</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Listings for around 15 chalets, some for sale and some to rent</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>A contact page with a working enquiry form</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Custom CSS changes, plus a guide for the agency on adding, editing and removing listings</li>
+        </ul>
+        <div class="chips" style="margin-bottom:28px"><span class="chip">WordPress</span><span class="chip">CSS</span><span class="chip">Theme customisation</span><span class="chip">Client documentation</span></div>
+        <a class="btn btn-ghost" href="https://github.com/yasdwarka/Integrating-a-WordPress-theme" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="projects-head reveal" style="margin-top:112px">
+      <div>
+        <div class="eyebrow">Projects</div>
+        <h2 class="section-title">Front-end builds</h2>
+        <p class="lede">Web apps, ecommerce UI and dashboards from my GitHub.</p>
+      </div>
+      <a class="btn btn-ghost" href="https://github.com/yasdwarka?tab=repositories" target="_blank" rel="noopener">All repositories →</a>
+    </div>
+
+    <div class="project-grid">
+      <a class="project reveal" href="https://github.com/yasdwarka/fullsstackproject" target="_blank" rel="noopener">
+        <div class="project-top">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.7a1 1 0 0 0 1-.8L21 7H6"/></svg></div>
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <span class="label">Ecommerce UI</span>
+        <h3>Product list &amp; cart</h3>
+        <p>A purchase flow that loads products from JSON, with a slide-out cart, quantity controls and a live basket count.</p>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">JSON</span></div>
+      </a>
+
+      <a class="project reveal" href="https://github.com/yasdwarka/customer-dashboard" target="_blank" rel="noopener">
+        <div class="project-top">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <span class="label">Dashboard</span>
+        <h3>Customer dashboard</h3>
+        <p>A dashboard interface that shows customer development details at a glance.</p>
+        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span></div>
+      </a>
+
+      <a class="project reveal" href="https://github.com/yasdwarka/Restaurantreviews" target="_blank" rel="noopener">
+        <div class="project-top">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <span class="label">Web app</span>
+        <h3>Restaurant reviews</h3>
+        <p>A Google Maps app for finding nearby restaurants and adding your own 1–5 star reviews.</p>
+        <div class="chips"><span class="chip">Google Maps API</span><span class="chip">JavaScript</span></div>
+      </a>
+
+      <a class="project reveal" href="https://github.com/yasdwarka/Turn-based-board-game" target="_blank" rel="noopener">
+        <div class="project-top">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <span class="label">Interactive</span>
+        <h3>Turn-based strategy game</h3>
+        <p>A two-player game with randomly generated maps and turn-based combat, written in object-oriented JavaScript.</p>
+        <div class="chips"><span class="chip">JavaScript</span><span class="chip">jQuery</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Experience</div>
+      <h2 class="section-title">Career</h2>
+    </div>
+    <div class="timeline">
+      <article class="job reveal">
+        <div>
+          <div class="date">MAY 2023 — JUL 2026</div>
+          <h3>Paysafe</h3>
+          <div class="role">Conversion Rate Optimisation Specialist</div>
+        </div>
+        <div class="job-body">
+          <p>Global payments and fintech company. I worked across 4 digital brands and 11 international markets with Product, UX, Analytics, Marketing and Engineering.</p>
+          <ul>
+            <li><b>Delivered 112 A/B tests</b> with an estimated 70% win rate, running an always-on pipeline from discovery to rollout.</li>
+            <li>Lifted <b>Paysafecard signup by 5.2%</b>, <b>Paysafe.com contact CTA engagement by 632%</b> and <b>Skrill mobile navigation CTR by 42.82%</b>.</li>
+            <li>Built personalised experiences in Optimizely for different markets and journeys across homepage, navigation and landing pages.</li>
+            <li>Combined GA4, Adobe Analytics, Hotjar, Looker Studio and SQL to diagnose funnel friction, and prioritised the backlog with ICE and PIE.</li>
+            <li>Presented roadmaps and results to stakeholders as clear commercial actions, and mentored a junior CRO colleague.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job reveal">
+        <div>
+          <div class="date">JUN 2021 — MAY 2023</div>
+          <h3>British Heart Foundation</h3>
+          <div class="role">Digital Conversion Executive</div>
+        </div>
+        <div class="job-body">
+          <p>One of the UK's largest charities, with major ecommerce and digital fundraising operations.</p>
+          <ul>
+            <li><b>Grew ecommerce conversions by 256%</b> through customer research, analytics and iterative optimisation.</li>
+            <li>Owned testing roadmaps aligned with ecommerce, fundraising and customer-experience goals.</li>
+            <li>Supported cross-sell and upsell initiatives to increase product adoption and engagement.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="stack" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Growth stack</div>
+      <h2 class="section-title">Tools &amp; methods</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack reveal"><h3>Experimentation</h3><div class="chips"><span class="chip">Optimizely</span><span class="chip">A/B testing</span><span class="chip">Personalisation</span><span class="chip">Statistical analysis</span></div></div>
+      <div class="stack reveal"><h3>Analytics &amp; insight</h3><div class="chips"><span class="chip">GA4</span><span class="chip">Adobe Analytics</span><span class="chip">Looker Studio</span><span class="chip">SQL</span><span class="chip">Hotjar</span></div></div>
+      <div class="stack reveal"><h3>Build &amp; QA</h3><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Figma</span><span class="chip">BrowserStack</span></div></div>
+      <div class="stack reveal"><h3>Methods</h3><div class="chips"><span class="chip">Funnel analysis</span><span class="chip">User research</span><span class="chip">ICE / PIE</span><span class="chip">AI-assisted research</span></div></div>
+    </div>
+
+    <div class="cred-grid">
+      <div class="cred reveal">
+        <h4>Certifications</h4>
+        <ul>
+          <li><b>Optimizely Certified Platform Core Practitioner</b><span>Optimizely</span></li>
+          <li><b>Optimizely Certified Foundation Level</b><span>Optimizely</span></li>
+          <li><b>ISTQB-ISEB Certified Tester, Foundation</b><span>ISTQB</span></li>
+        </ul>
+      </div>
+      <div class="cred reveal">
+        <h4>Education</h4>
+        <ul>
+          <li><b>MSc Information Systems &amp; Computing</b><span>University of Greenwich</span></li>
+          <li><b>BSc Information Systems &amp; Computing</b><span>University of Portsmouth</span></li>
+          <li><b>Diploma in Front-End Development</b><span>OpenClassrooms</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark contact" id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2>Let's grow your funnel.</h2>
+        <p>I'm open to Growth, CRO and Experimentation roles in London or remote. If you need someone who can find the opportunity, build the test and prove the result, let's talk.</p>
+      </div>
+      <div class="contact-ctas">
+        <a class="btn btn-accent" href="mailto:yaswinidwarka@gmail.com">yaswinidwarka@gmail.com</a>
+        <a class="btn btn-line" href="https://www.linkedin.com/in/yaswini-dwarka/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn btn-line" href="https://github.com/yasdwarka?tab=repositories" target="_blank" rel="noopener">View GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Yas Dwarka · Growth &amp; Experimentation · London</span>
+    <span><a href="https://www.linkedin.com/in/yaswini-dwarka/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/yasdwarka" target="_blank" rel="noopener">GitHub</a><a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const btn = document.getElementById('menuBtn'), links = document.getElementById('navLinks');
+  btn.addEventListener('click', () => { const o = links.classList.toggle('open'); btn.setAttribute('aria-expanded', o); });
+  links.addEventListener('click', e => { if (e.target.tagName === 'A') { links.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
